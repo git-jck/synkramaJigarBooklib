@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "871295e3-8815-4efc-822d-ab3d16e50f2c",
+		"name": "synkrama bookLib",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24534832"
+	},
+	"item": [
+		{
+			"name": "get all books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "yesauth1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6933",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6933"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all books without token",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6933",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6933"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "yesauth1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"gravity\",\r\n    \"author\": \"yes its Einstien\",\r\n    \"year\": 1956,\r\n    \"genre\": \"science\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6933/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6933",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add book with incorrect data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "yesauth1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"electron\",\r\n    \"author\": 1899,\r\n    \"year\": \"two thousand\",\r\n    \"genre\": \"science\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6933/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6933",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get book by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "yesauth1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6933/books/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6933",
+					"path": [
+						"books",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update book with params ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "yesauth1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"year\": 1957\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6933/books/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6933",
+					"path": [
+						"books",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete book by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "yesauth1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6933/books/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6933",
+					"path": [
+						"books",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get books by page",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "yesauth1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6933?page=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6933",
+					"query": [
+						{
+							"key": "page",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
